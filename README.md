@@ -1,20 +1,25 @@
-Android Unit test (POJO and UI)
+Android Unit Test (POJO and UI)
 ====
 
-I had a hard time to have Robolectric and Roboguice working together, and I couldn't find any working example that was also loading Modules for test only. After few days of gathering pieces here and there, I was able to accomplish what I needed.
+Context
+----
+
+I was working on an Android Library that contains a bunch of components (Fragment, Util etc.) that would be usable across different Apps. Since there's POJO and UI elements, I wanted to be able to test those things without using a device.
+
+I had a hard time having Robolectric and Roboguice working together, and I couldn't find any working example that was also loading Modules for test only. After few days of gathering pieces here and there, I was able to accomplish what I needed.
 
 
 Usage
 ----
 
-This small app shows how to run POJO and UI tests (without device):
+From Android Studio, Import the project (don't Open it). Note that the tests won't work in the IDE. This small app can be compiled and installed via the usual way.
+
+To run POJO and UI tests (without device):
 
 ```sh
 ./gradlew unitTest # POJO
 ./gradlew test # UI
 ```
-
-
 
 Frameworks used
 ----
@@ -26,7 +31,7 @@ Frameworks used
 * android-unit-test plugin 1.0.1
 
 
-Thanks:
+Thanks
 ----
 
 SuperJugy: https://github.com/JCAndKSolutions/android-unit-test
