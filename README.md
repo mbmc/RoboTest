@@ -24,10 +24,10 @@ To run POJO and UI tests (without device):
 Frameworks used
 ----
 
-* Android Studio 0.2.10
-* Gradle 1.8
+* Android Studio 0.4.0
+* Gradle 1.9
 * Roboguice 2.0
-* Robolectric 2.1
+* Robolectric 2.2
 * android-unit-test plugin 1.0.1
 
 
@@ -36,6 +36,8 @@ Thanks
 
 SuperJugy: https://github.com/JCAndKSolutions/android-unit-test
 
-The people from Roboguice: https://github.com/roboguice/roboguice/tree/master/astroboy
+Roboguice: https://github.com/roboguice/roboguice
+
+Robolectric: https://github.com/robolectric/robolectric
 
 Feel free to comment or change anything.
