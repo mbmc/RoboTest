@@ -29,7 +29,7 @@ Versions used
 * Robolectric 2.2
 * android-unit-test plugin 2.0.2
 * minSDK 14
-* targetSDK 21
+* targetSDK 18 (latest API version supported by Robolectric)
 
 
 Thanks

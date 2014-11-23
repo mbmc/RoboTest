@@ -7,13 +7,12 @@ import org.junit.runner.RunWith;
 import org.junit.Test;
 
 import org.robolectric.Robolectric;
-
-import dalvik.annotation.TestTargetClass;
+import org.robolectric.RobolectricTestRunner;
 
 import static org.junit.Assert.*;
 
 
-@RunWith(RoboGradleTestRunner.class)
+@RunWith(RobolectricTestRunner.class)
 public class RoboTest  {
 
     @Test

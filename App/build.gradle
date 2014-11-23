@@ -10,12 +10,12 @@ buildscript {
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 21
+    compileSdkVersion 18
     buildToolsVersion "21.1.1"
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 21
+        targetSdkVersion 18
 
         applicationId "com.sample.app"
     }
@@ -34,9 +34,9 @@ dependencies {
     compile project(':Library')
 
     testCompile 'junit:junit:4.11'
-    testCompile 'org.robolectric:robolectric:2.2'
+    testCompile 'org.robolectric:robolectric:2.3'
 
     // Helps writing test files in Android Studio (completion etc)
     provided 'junit:junit:4.11'
-    provided 'org.robolectric:robolectric:2.2'
+    provided 'org.robolectric:robolectric:2.3'
 }
