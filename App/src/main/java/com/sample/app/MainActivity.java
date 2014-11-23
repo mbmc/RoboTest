@@ -1,7 +1,6 @@
 package com.sample.app;
 
 import android.os.Bundle;
-import android.view.Menu;
 import android.widget.TextView;
 
 import com.google.inject.Inject;
@@ -27,14 +26,6 @@ public class MainActivity extends RoboActivity {
         super.onCreate(savedInstanceState);
 
         textView.setText(library.getMessage());
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
     }
     
 }

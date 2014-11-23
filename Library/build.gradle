@@ -1,26 +1,19 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:0.7.+'
-    }
-}
-
-apply plugin: 'android-library'
-
-repositories {
-    mavenCentral()
-}
+apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion "19.0.1"
+    compileSdkVersion 21
+    buildToolsVersion "21.1.1"
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 14
+        targetSdkVersion 21
+    }
+
+    // Make test files visible in Android Studio
+    sourceSets {
+        androidTest {
+            java.srcDirs = ['src/test/java']
+        }
     }
 }
 
@@ -46,7 +39,10 @@ check.dependsOn unitTest
 dependencies {
     compile 'org.roboguice:roboguice:2.0'
 
-    unitTestCompile files("$project.buildDir/classes/release")
+    unitTestCompile files("$project.buildDir/intermediates/classes/release")
     unitTestCompile 'org.roboguice:roboguice:2.0'
     unitTestCompile 'junit:junit:4.11'
+
+    // Helps writing test files in Android Studio (completion etc)
+    provided 'junit:junit:4.11'
 }

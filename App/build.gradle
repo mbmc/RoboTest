@@ -1,38 +1,42 @@
 buildscript {
-    repositories {
-        mavenCentral()
-    }
-
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.7.+'
-        classpath 'com.github.jcandksolutions.gradle:android-unit-test:1.0.+'
+        repositories {
+            jcenter()
+        }
+        classpath 'com.github.jcandksolutions.gradle:android-unit-test:2.0.2'
     }
 }
 
-apply plugin: 'android'
+apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion "19.0.1"
+    compileSdkVersion 21
+    buildToolsVersion "21.1.1"
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 14
+        targetSdkVersion 21
 
-        packageName "com.sample.app"
+        applicationId "com.sample.app"
+    }
+
+    // Make test files visible in Android Studio
+    sourceSets {
+        androidTest {
+            java.srcDirs = ['src/test/java']
+        }
     }
 }
 
 apply plugin: 'android-unit-test'
 
 dependencies {
-    repositories {
-        mavenCentral()
-    }
-
     compile project(':Library')
-    compile 'com.android.support:appcompat-v7:+'
 
     testCompile 'junit:junit:4.11'
     testCompile 'org.robolectric:robolectric:2.2'
+
+    // Helps writing test files in Android Studio (completion etc)
+    provided 'junit:junit:4.11'
+    provided 'org.robolectric:robolectric:2.2'
 }
