@@ -1,12 +1,13 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 18
+    compileSdkVersion 21
     buildToolsVersion "21.1.1"
 
     defaultConfig {
+        applicationId "com.sample.library"
         minSdkVersion 14
-        targetSdkVersion 18
+        targetSdkVersion 21
     }
 
     // Make test files visible in Android Studio
@@ -36,11 +37,16 @@ task unitTest(type: Test, dependsOn: assemble) {
 
 check.dependsOn unitTest
 
+project.tasks.withType(JavaCompile) { task ->
+    options.compilerArgs << "-AguiceAnnotationDatabasePackageName=com.sample.library"
+}
+
 dependencies {
-    compile 'org.roboguice:roboguice:2.0'
+    compile 'org.roboguice:roboguice:3.0.1'
+    provided 'org.roboguice:roboblender:3.0.1'
 
     unitTestCompile files("$project.buildDir/intermediates/classes/release")
-    unitTestCompile 'org.roboguice:roboguice:2.0'
+    unitTestCompile 'org.roboguice:roboguice:3.0.1'
     unitTestCompile 'junit:junit:4.11'
 
     // Helps writing test files in Android Studio (completion etc)

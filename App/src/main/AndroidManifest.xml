@@ -2,14 +2,7 @@
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sample.app"
-    android:versionCode="1"
-    android:versionName="1.0"
     >
-
-    <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="14"
-        />
 
     <application
         android:name="com.sample.library.StartApplication"
@@ -29,6 +22,8 @@
             </intent-filter>
         </activity>
 
+        <meta-data android:name="roboguice.annotations.packages" android:value="com.sample.app" />
+        <meta-data android:name="roboguice.modules" android:value="com.sample.library.guice.Bindings" />
     </application>
 
 </manifest>

@@ -3,21 +3,22 @@ buildscript {
         repositories {
             jcenter()
         }
-        classpath 'com.github.jcandksolutions.gradle:android-unit-test:2.0.2'
+        classpath 'org.robolectric:robolectric-gradle-plugin:0.14.0'
     }
 }
 
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 18
+    compileSdkVersion 21
     buildToolsVersion "21.1.1"
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 18
-
         applicationId "com.sample.app"
+        minSdkVersion 14
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
     }
 
     // Make test files visible in Android Studio
@@ -28,15 +29,21 @@ android {
     }
 }
 
-apply plugin: 'android-unit-test'
+apply plugin: 'robolectric'
+
+project.tasks.withType(JavaCompile) { task ->
+    options.compilerArgs << "-AguiceAnnotationDatabasePackageName=com.sample.app"
+}
 
 dependencies {
     compile project(':Library')
 
+    provided 'org.roboguice:roboblender:3.0.1'
+
     testCompile 'junit:junit:4.11'
-    testCompile 'org.robolectric:robolectric:2.3'
+    testCompile 'org.robolectric:robolectric:2.4'
 
     // Helps writing test files in Android Studio (completion etc)
     provided 'junit:junit:4.11'
-    provided 'org.robolectric:robolectric:2.3'
+    provided 'org.robolectric:robolectric:2.4'
 }

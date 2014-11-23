@@ -4,7 +4,7 @@ Android Unit Test (POJO and UI)
 Context
 ----
 
-Be able to run unit and UI test (without device) on an Android project that is also using a Library, with Roboguice, Robolectric and test Modules.
+Be able to run unit and UI test (without device) on an Android project that is also using a Library, with the latest Roboguice, Robolectric and Module override.
 
 
 Usage
@@ -25,17 +25,18 @@ Versions used
 * Android Studio 1.0 RC1
 * Gradle 2.2
 * Gradle-plugin 0.14.4
-* Roboguice 2.0
-* Robolectric 2.2
-* android-unit-test plugin 2.0.2
+* Roboguice 3.0.1
+* Roboblender 3.0.1
+* Robolectric 2.4
+* robolectric-gradle-plugin 0.14.0
 * minSDK 14
-* targetSDK 18 (latest API version supported by Robolectric)
+* targetSDK 21
 
 
 Thanks
 ----
 
-SuperJugy: https://github.com/JCAndKSolutions/android-unit-test
+Robolectric-gradle-plugin: https://github.com/robolectric/robolectric-gradle-plugin
 
 Roboguice: https://github.com/roboguice/roboguice
 

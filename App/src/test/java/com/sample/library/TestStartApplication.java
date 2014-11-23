@@ -2,8 +2,6 @@ package com.sample.library;
 
 import android.app.Application;
 
-import com.google.inject.Injector;
-import com.google.inject.util.Modules;
 import com.sample.library.guice.Bindings;
 import com.sample.library.guice.TestBindings;
 
@@ -19,14 +17,14 @@ public class TestStartApplication extends Application implements TestLifecycleAp
 
     @Override
     public void beforeTest(Method method) {
-        RoboGuice.setBaseApplicationInjector(this, RoboGuice.DEFAULT_STAGE, RoboGuice.newDefaultRoboModule(this), new Bindings());
+        RoboGuice.getOrCreateBaseApplicationInjector(this, RoboGuice.DEFAULT_STAGE, RoboGuice.newDefaultRoboModule(this), new Bindings());
     }
 
     @Override
     public void prepareTest(Object test) {
         TestStartApplication application = (TestStartApplication) Robolectric.application;
 
-        RoboGuice.setBaseApplicationInjector(application, RoboGuice.DEFAULT_STAGE, RoboGuice.newDefaultRoboModule(application), new TestBindings());
+        RoboGuice.getOrCreateBaseApplicationInjector(application, RoboGuice.DEFAULT_STAGE, RoboGuice.newDefaultRoboModule(application), new TestBindings());
 
         RoboGuice.getInjector(application).injectMembers(test);
     }
