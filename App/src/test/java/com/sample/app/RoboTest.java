@@ -27,9 +27,12 @@ public class RoboTest  {
     @Test
     public void testTextView() {
         Activity activity = Robolectric.buildActivity(MainActivity.class).create().get();
-        TextView textView = (TextView) activity.findViewById(R.id.textView);
 
+        TextView textView = (TextView) activity.findViewById(R.id.text1);
         assertEquals("Received message from LibraryTestImpl", textView.getText());
+
+        textView = (TextView) activity.findViewById(R.id.text2);
+        assertEquals("123", textView.getText());
     }
 
 }

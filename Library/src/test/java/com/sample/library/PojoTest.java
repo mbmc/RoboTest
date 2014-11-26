@@ -13,10 +13,18 @@ public class PojoTest extends PojoTestcase {
     @Inject
     private Library library;
 
+    @Inject
+    private Service service;
+
 
     @Test
     public void testLibrary() {
         assertEquals("Received message from LibraryTestImpl", library.getMessage());
+    }
+
+    @Test
+    public void testService() {
+        assertEquals(123, service.getValue());
     }
 
 }
